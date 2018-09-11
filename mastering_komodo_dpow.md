@@ -56,5 +56,27 @@ If your coin has made various internals changes and selectively added BIPs
 or other internals changes, you will most likely need to make various changes
 specific to your coin.
 
+## Adding some RPC methods
+
+You will need to add a few RPC methods to your coin so that will allow
+software to ask the node various questions about Merkle roots of Merkle roots
+(MoMs). Crosschain proofs are Merkle roots of MoMs and are called MoMoMs.
+
+### calc\_MoM height MoMdepth
+
+Calculate a MoM (Merkle root of block Merkle roots)
+
+Arguments:
+
+height: Height of first block MoMdepth: number of blocks to include
+
+Eg:
+
+```
+calc_MoM 100000 20
+Response: { "coin": "DATACHAIN" , "height": 100000 , "MoMdepth": 20 , "MoM": "53c234e5e8472b6ac51c1ae1cab3fe06fad053beb8ebfd8977b010655bfdd3c3" }
+```
+
+
 # More coming soon
 
