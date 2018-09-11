@@ -1,6 +1,8 @@
 # Mastering Komodo Delayed Proof-of-Work
 
-This is a technical book aimed at developers who are interested to learn
+## by Duke Leto
+
+This is a short technical document aimed at developers who are interested to learn
 more about DPoW and/or want to add it to their a cryptocoin to protect
 against consensus (51%) attacks. These attacks are becoming very common
 against coins from large to small.
@@ -8,6 +10,13 @@ against coins from large to small.
 This book assumes basic knowledge of the Bitcoin protocol, Bitcoin source code,
 C++ and basic compiler knowledge. No prior knowledge of Komodo is assumed, this
 work contains a basic introduction of Komodo features.
+
+# Supporting This Document And Author
+
+The author is currently a Komodo Notary Node operator and Komodo Core Developer
+who relies solely on cryptocoin income. If this document has helped you and
+you would like to support future updates, you can send donations to
+the KMD address RBSEv7nJ1wciriVyLFWotQ8tBvS2rKwYtz . Thanks!
 
 # High Level Overview of DPoW
 
