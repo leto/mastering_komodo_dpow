@@ -45,14 +45,16 @@ the coin forked is important, this determines which header file that will be
 immediately compatible or at least a close starting point for development work.
 
 For example, if your coin is based on Bitcoin 0.15.x, there already exists a
-header file that matches that version of Bitcoin internals exactly. This was
-first created by the author of Komodo, jl777, and then the author of this
-document ported that header file to Bitcoin 0.11.x internals, which Zcash
-and all Zcash forks have as their internals. So if your coin is a Zcash fork,
-you should use the [komodo\_validation011.h](https://github.com/MyHush/hush/blob/e529ad8d35d4dabf66fa10982e056149414f179b/src/komodo_validation011.h)
-header file. If your coin has
-SegWit support, or is 0.14-0.16 internals, the [komodo\_validation015.h](https://github.com/jl777/chips3/blob/dev/src/komodo_validation015.h) file
-is most likely the best starting point to integrate.
+header file that matches that version of Bitcoin internals exactly. The GAME
+coin was the first external coin to start using dPoW and [this commit](https://github.com/gamecredits-project/GameCredits/commit/e65fe302111408c02d2bf7e286205d4273fa0fed)
+shows how they integrated. This was first created by the author of Komodo,
+jl777, and then the author of this document ported that header file to Bitcoin
+0.11.x internals, which Zcash and all Zcash forks have as their internals. So
+if your coin is a Zcash fork, you should use the
+[komodo\_validation011.h](https://github.com/MyHush/hush/blob/e529ad8d35d4dabf66fa10982e056149414f179b/src/komodo_validation011.h)
+header file. If your coin has SegWit support, or is 0.14-0.16 internals, the
+[komodo\_validation015.h](https://github.com/jl777/chips3/blob/dev/src/komodo_validation015.h)
+file is most likely the best starting point to integrate.
 
 NOTE: The 0.11.x header file has some improvements which have yet to be ported
 to the 0.15.x header file, specifically dynamic generation of Notary pubkey
