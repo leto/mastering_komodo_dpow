@@ -27,6 +27,50 @@ send. Notary nodes run full nodes of Bitcoin, Komodo, and all Komodo Asset chain
 and coins protected by KMD DPoW, and are the way data from one chain makes it onto
 another chain.
 
+In more detail, there exist a network of 64 notary nodes spread around the
+globe.  They are not in any one physical location, which makes the system
+resilient against a datacenter outage or natural disaster in one geographical
+location. The algorithm NNs use require 13 notary nodes to come together and
+agree on what the latest Merkle root and other metadata that will be embedded
+into the Komodo and Bitcoin blockchains inside the OP\_RETURN data of a
+multisig transaction. This means that to take down the notarization process, to
+stop the data flow, one must attack and knock offline 52 different servers in
+diverse locations,  simultaneously. In this case, notarization data would stop
+flowing, but no "fake" or "incorrect" notarization data can be created, because
+the source code of Komodo has the public keys of notary nodes embedded in it's
+source code. Only notary nodes have the corresponding private keys to make
+transactions that the network will trust as valid notarizations. So DDoS
+attacks can only stop notarization data from flowing temporarily, they can not
+be used to knock actual notaries off-line and then impersonate or man-in-middle
+the process.
+
+# Double Spend Attack Prevention
+
+It is the authors recommendation that exchanges pause any transactions for
+which data has not yet been notarized to the appropriate chain. For a game
+allowing in-game purchases with digital currencies, it might allow transactions
+up to $10 if the data has been notarized to Komodo, or no limit on transactions
+that have been notarized to Bitcoin. This allows small-value transactions to
+proceed very quickly (Komodo has a 1 minute blocktime) while ensuring
+protection against double-spend attacks for large value transactions. This
+protection comes at the cost of waiting longer, as Bitcoin has 10 minute
+blocktime.
+
+It is important to understand that one half of the process is notarization
+data, which must go from COIN -> KMD -> BTC, and the other half of Double Spend
+Protection is actually looking at this notarization data and deciding if it's
+safe to proceed with some action. Komodo provides an API to see if a txid of a
+certain dpow-enabled coin has been notarized to KMD and BTC, so that exchanges
+and other parties wanting to protect against double spends can make informed
+decisions.
+
+The plan is that any party can and should run their own instance of this API,
+which relies on talking to full nodes of BTC, KMD and the coin being notarized.
+Additionally KMD will run it's own publicly available instance, and an exchange
+or other organization can decide which servers, other then their own to query.
+Any difference in the response from different instances should be inspected by
+a human, since it indicates incorrectly set up software or a potential attack.
+
 # Cost of DPoW
 
 The raw cost of 64 global notary nodes making transactions roughly once per
