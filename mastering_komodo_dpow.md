@@ -71,6 +71,10 @@ or other organization can decide which servers, other then their own to query.
 Any difference in the response from different instances should be inspected by
 a human, since it indicates incorrectly set up software or a potential attack.
 
+The API for when notarizations have made it to the KMD chain is at
+https://komodostats.com/api/notary/summary.json and the API for looking up an
+arbitary txid and whether it has been notarized to Bitcoin is in development.
+
 # Cost of DPoW
 
 The raw cost of 64 global notary nodes making transactions roughly once per
