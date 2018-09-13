@@ -115,6 +115,26 @@ If your coin has made various internals changes and selectively added BIPs
 or other internals changes, you will most likely need to make various changes
 specific to your coin.
 
+## Integrating a Zcash fork
+
+For the specific case of adding DPoW to a Zcash fork, the 0.11.x header file,
+first implemented for Hush, should be used. Zcash forks are characterized by
+being pre-Segwit and having some differences in how UTXOs are stored in LevelDB
+compared to post-Segwit coins.
+
+## Integrating a Litecoin fork
+
+For Litecoin forks, the version of BTC internals inside is what makes the biggest
+difference. Being pre-Segwit means using the 0.11.x header file as a starting point,
+and post-Segwit can use 0.15 header file.
+
+## Integrating a non-Bitcoin-derived coin
+
+It will be most likely be challenging to integrate a coin not derived from Bitcoin
+but we are eager to see if it's possible. The currently available 0.11 and 0.15
+header files can be used if the project is in C++ but if the coin is written
+in another language then those header files must be ported to that language first.
+
 ## Adding some RPC methods
 
 You will need to add a few RPC methods to your coin so that will allow
