@@ -20,7 +20,7 @@ the KMD address RBSEv7nJ1wciriVyLFWotQ8tBvS2rKwYtz . Thanks!
 
 # High Level Overview of DPoW
 
-DPoW sends Merkle hash data from your coin, to KMD, which is then sent to Bitcoin,
+DPoW sends blockhash data from your coin, to KMD, which is then sent to Bitcoin,
 providing a small coin with a small hashrate the security of BTC hashrate. This
 data is embedded in OP\_RETURN metadata which Komodo Notary Nodes continuosly
 send. Notary nodes run full nodes of Bitcoin, Komodo, and all Komodo Asset chains
