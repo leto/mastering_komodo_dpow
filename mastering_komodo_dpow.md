@@ -115,6 +115,35 @@ If your coin has made various internals changes and selectively added BIPs
 or other internals changes, you will most likely need to make various changes
 specific to your coin.
 
+## Estimating Notarization Lag
+
+We will use Hush, a Zcash fork, as an example to estimate notarization lag,
+i.e. the time it takes for notarization data to make it from one chain to
+another. To estimate the "worst case" time it takes notarization to get to
+Bitcoin, we can simple add up all the blocktimes involved, so we will be adding
+blocktimes of
+
+    HUSH + KMD + BTC = 180s + 60s + 600s
+
+which is 840s or 13.5 minutes for blockhash data from Hush to be notarized all
+the way to Bitcoin. This is the time it would take such that an exchange could
+ask the Bitcoin blockchain if a given txid has been notarized.
+
+Note that the above block-times are "worst case" under normal network
+conditions, i.e. a transaction is made a millisecond after a block, so it has
+to wait the entire block interval on HUSH. And then is unlucky enough to have
+to wait an entire KMD block interval and an entire Bitcoin block interval.
+
+It's possible that a bug or attack or large difficulty change makes one block
+much longer than the average block interval time, which would increase the
+time it takes for notarization data to make it to BTC. This is why a specific
+time cannot be used to decide it's "safe", very often 13.5 minutes would be enough
+time for Hush block hash data to get to the Bitcoin chain, but there could
+be times when it is not.
+
+On average, users will only wait half of each coins block time, which
+means 13.5/2 = 6.75 minutes for Hush blockhash data to be written to Bitcoin.
+
 ## Integrating a Zcash fork
 
 For the specific case of adding DPoW to a Zcash fork, the 0.11.x header file,
