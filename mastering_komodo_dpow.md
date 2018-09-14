@@ -115,7 +115,7 @@ If your coin has made various internals changes and selectively added BIPs
 or other internals changes, you will most likely need to make various changes
 specific to your coin.
 
-## Estimating Notarization Lag
+## Calculating Notarization Lag
 
 We will use Hush, a Zcash fork, as an example to estimate notarization lag,
 i.e. the time it takes for notarization data to make it from one chain to
@@ -143,6 +143,15 @@ be times when it is not.
 
 On average, users will only wait half of each coins block time, which
 means 13.5/2 = 6.75 minutes for Hush blockhash data to be written to Bitcoin.
+
+## Is My PoW algorithm compatible with DPoW?
+
+There are many PoW algorithms to choose from these days and thankfully
+the DPoW algorithm is blissfully ignorant of all these differences. It
+does not care if something is SHA256 versus Equihash, all it sees is a
+256 bit block hash, i.e. a 256 bit integer. It's just a number. Any
+coin using a 256 bit blockhash is compatible, which includes most
+known coins.
 
 ## Integrating a Zcash fork
 
