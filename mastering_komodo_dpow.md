@@ -59,10 +59,16 @@ blocktime.
 It is important to understand that one half of the process is notarization
 data, which must go from COIN -> KMD -> BTC, and the other half of Double Spend
 Protection is actually looking at this notarization data and deciding if it's
-safe to proceed with some action. Komodo provides an API to see if a txid of a
-certain dpow-enabled coin has been notarized to KMD and BTC, so that exchanges
-and other parties wanting to protect against double spends can make informed
-decisions.
+safe to proceed with some action. Komodo is working on an API to see if a txid
+of a certain dpow-enabled coin has been notarized to KMD and BTC, so that
+exchanges and other parties wanting to protect against double spends can make
+informed decisions, in much shorter time periods than waiting until 120 confirmations.
+
+Currently exchanges often wait 120 confirmations, which is well beyond the 100
+block reorganization limit that is part of the Bitcoin protocol in many cryptocoins.
+With two minute blocktimes, that is 4 hours to wait, instead of waiting a much
+shorter and being able to ask an API if a transaction has been included in a
+notarizion to Bitcoin.
 
 The plan is that any party can and should run their own instance of this API,
 which relies on talking to full nodes of BTC, KMD and the coin being notarized.
