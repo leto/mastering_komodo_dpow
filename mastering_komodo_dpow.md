@@ -229,13 +229,17 @@ not describe every single step but it will be applicable to most situations.
     * Create a new branch for dpow work
     * Copy the correct header file to the `src/` directory of your coin
     * If you are already using BTC internals 0.11/0.15, skip the next step
-    * Make any API changes required to get header files compiling on your specific version of BTC internals
-    * Make sure your code dynamically generates addresses (0.11 does, 0.15 does not yet)
+    * Make any API changes required to get header files compiling on your
+      specific version of BTC internals
+    * Make sure your code dynamically generates addresses (0.11 does, 0.15 does
+      not yet)
     * Do a fresh sync of 2 new nodes on the branch with dpow code
         * One node with have txindex=1
         * One node will not have txindex
-    * If both nodes can compile sync from scratch, then you are most likely done with integration!
-    * Contact Komodo for the next round of instructions, which is Notary Nodes testing your code
+    * If both nodes can sync from scratch with no bad errors, then you are most
+      likely done with integration!
+    * Contact Komodo for the next round of instructions, which is Notary Nodes
+      testing your code
 
 ## Adding some RPC methods
 
