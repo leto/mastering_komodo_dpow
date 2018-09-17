@@ -62,6 +62,15 @@ a yearly upgrade window for each coin, where a hardfork is going to happen
 anyway. For instance, the size of the maximum OP\_RETURN might be changed,
 or a different difficulty algorithm used (test it thoroughly first!).
 
+Additionally, there is a preferred time of year where it makes the most sense
+to integrate DPoW, essentially directly after the yearly KMD notary election
+and hard-fork. That prevents a situation where adding DPoW integration in March
+requires a hard-fork and then the KMD notary election requires another
+hard-fork just a short-time later. Exchanges are not excited to update full
+nodes and some exchanges attempt to charge for full node updates (which the
+author finds scammy), so timing the integration of DPoW services can be very
+strategic.
+
 # Double Spend Attack Prevention
 
 It is the authors recommendation that exchanges pause any transactions for
