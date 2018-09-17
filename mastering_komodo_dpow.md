@@ -18,7 +18,7 @@ providing a small coin with a small hashrate the security of BTC hashrate. This
 data is embedded in OP\_RETURN metadata which Komodo Notary Nodes continuosly
 send. Notary nodes run full nodes of Bitcoin, Komodo, and all Komodo Asset chains
 and coins protected by KMD DPoW, and are the way data from one chain makes it onto
-another chain.
+another chain. The author of this document helps run the [ChainStrike notary node](https://komodostats.com/node.php?id=16).
 
 
 ## Global Notary Node Network
