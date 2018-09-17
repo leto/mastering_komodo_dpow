@@ -221,6 +221,22 @@ ported to that language first.
 If your coin reimplements Bitcoin protocol from scratch, then it may still be
 compatible. Please join #developer on Komodo Discord to ask more questions.
 
+### Integration Procedure
+
+This is a high-level procedure of how to integrate an arbitrary coin. It will
+not describe every single step but it will be applicable to most situations.
+
+    * Create a new branch for dpow work
+    * Copy the correct header file to the `src/` directory of your coin
+    * If you are already using BTC internals 0.11/0.15, skip the next step
+    * Make any API changes required to get header files compiling on your specific version of BTC internals
+    * Make sure your code dynamically generates addresses (0.11 does, 0.15 does not yet)
+    * Do a fresh sync of 2 new nodes on the branch with dpow code
+        * One node with have txindex=1
+        * One node will not have txindex
+    * If both nodes can compile sync from scratch, then you are most likely done with integration!
+    * Contact Komodo for the next round of instructions, which is Notary Nodes testing your code
+
 ## Adding some RPC methods
 
 You will need to add a few RPC methods to your coin so that will allow
