@@ -11,7 +11,6 @@ This book assumes basic knowledge of the Bitcoin protocol, Bitcoin source code,
 C++ and basic compiler knowledge. No prior knowledge of Komodo is assumed, this
 work contains a basic introduction of Komodo features.
 
-
 # High Level Overview of DPoW
 
 DPoW sends blockhash data from your coin, to KMD, which is then sent to Bitcoin,
@@ -20,6 +19,9 @@ data is embedded in OP\_RETURN metadata which Komodo Notary Nodes continuosly
 send. Notary nodes run full nodes of Bitcoin, Komodo, and all Komodo Asset chains
 and coins protected by KMD DPoW, and are the way data from one chain makes it onto
 another chain.
+
+
+## Global Notary Node Network
 
 In more detail, there exist a network of 64 notary nodes spread around the
 globe.  They are not in any one physical location, which makes the system
@@ -33,13 +35,6 @@ diverse locations,  simultaneously. In this case, notarization data would stop
 flowing, but no "fake" or "incorrect" notarization data can be created, because
 the source code of Komodo has the public keys of notary nodes embedded inside.
 
-Every year Komodo does a hard fork, which coincides with electing new notaries,
-which usually happens in early May. Electing new notaries means changing the
-KMD source code to list these new pubkeys and removing old ones. This means
-that any coin using DPoW will *also need to hardfork at a coordinated time*,
-i.e.  coins using DPoW will also fork in May each year, after new KMD notaries
-have been elected and the new notarization season begins.
-
 Only notary nodes have the corresponding private keys to make transactions that
 the network will trust as valid notarizations. So DDoS attacks can only stop
 notarization data from flowing temporarily, they can not be used to knock
@@ -52,9 +47,20 @@ they require a coordinated effort of all exchanges/mining pools/users upgrading,
 since it is a hard fork. Take this into consideration when planning upgrade
 timelines.
 
-Additionally, to stay current
+## Yearly Hard Forks
 
+Every year Komodo does a hard fork, which coincides with electing new notaries,
+which usually happens in early May. Electing new notaries means changing the
+KMD source code to list these new pubkeys and removing old ones. This means
+that any coin using DPoW will *also need to hardfork at a coordinated time*,
+i.e.  coins using DPoW will also fork in May each year, after new KMD notaries
+have been elected and the new notarization season begins.
 
+Coins can turn this yearly hard-fork into an opportunity to make any other
+non-emergency changes that would be consensus-level hard-forks. It allows
+a yearly upgrade window for each coin, where a hardfork is going to happen
+anyway. For instance, the size of the maximum OP\_RETURN might be changed,
+or a different difficulty algorithm used (test it thoroughly first!).
 
 # Double Spend Attack Prevention
 
