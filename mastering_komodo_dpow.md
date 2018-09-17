@@ -106,17 +106,27 @@ arbitary txid and whether it has been notarized to Bitcoin is in development.
 # Cost of DPoW
 
 The raw cost of 64 global notary nodes making transactions roughly once per
-minute (the Komodo block interval) has a cost. There is a one-time yearly fee
-of 300 KMD and 300 COIN paid directly to jl777 to cover these costs. To protect
-against future price increases of KMD (it's currently just over $1 USD), one
-may purchase 6300 KMD, and then use the yearly 5% interest of 300 KMD to pay
-the yearly notarization costs. The 300 KMD is used the first year and then the
-remaining 6000 KMD will generate 300 KMD per year via 5% interest.
+minute (the Komodo block interval) has a cost. There is currently a one-time
+yearly fee of 300 KMD and 300 COIN paid directly to jl777 to cover these costs.
+To protect against future price increases of KMD (it's currently just over $1
+USD), one may purchase 6300 KMD, and then use the yearly 5% interest of 300 KMD
+to pay the yearly notarization costs. The 300 KMD is used the first year and
+then the remaining 6000 KMD will generate 300 KMD per year via 5% interest.
+
+NOTE: These prices are very subject to change and will most likely increase as
+we have a fixed number of resources to help with integrations.
 
 Note that since block 1,000,000 of KMD, funds must be moved once per month to
 get the full 5% interest. Interest stops accruing after one month for UTXOs
 created after block 1M. UTXOs from before still accrue interest without needing
 to be moved.
+
+Also note, that if you decide to migrate your existing coin to a Komodo Asset
+Chain, there are no integrations needed or integration development costs. Just
+the cost for notarization transactions. This can be accomplished by doing an
+airdrop from your current chain to a new KMD asset chain, where people use their
+private keys to unlock the funds they owned on the original chain. This can be
+done by the project itself or Komodo can help with this process.
 
 # Integrating Komodo DPoW Into Your Coin
 
