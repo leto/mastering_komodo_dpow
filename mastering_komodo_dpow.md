@@ -11,12 +11,6 @@ This book assumes basic knowledge of the Bitcoin protocol, Bitcoin source code,
 C++ and basic compiler knowledge. No prior knowledge of Komodo is assumed, this
 work contains a basic introduction of Komodo features.
 
-# Supporting This Document And Author
-
-The author is currently a Komodo Notary Node operator and Komodo Core Developer
-who relies solely on cryptocoin income. If this document has helped you and
-you would like to support future updates, you can send donations to
-the KMD address RBSEv7nJ1wciriVyLFWotQ8tBvS2rKwYtz . Thanks!
 
 # High Level Overview of DPoW
 
@@ -37,12 +31,30 @@ multisig transaction. This means that to take down the notarization process, to
 stop the data flow, one must attack and knock offline 52 different servers in
 diverse locations,  simultaneously. In this case, notarization data would stop
 flowing, but no "fake" or "incorrect" notarization data can be created, because
-the source code of Komodo has the public keys of notary nodes embedded in it's
-source code. Only notary nodes have the corresponding private keys to make
-transactions that the network will trust as valid notarizations. So DDoS
-attacks can only stop notarization data from flowing temporarily, they can not
-be used to knock actual notaries off-line and then impersonate or man-in-middle
-the process.
+the source code of Komodo has the public keys of notary nodes embedded inside.
+
+Every year Komodo does a hard fork, which coincides with electing new notaries,
+which usually happens in early May. Electing new notaries means changing the
+KMD source code to list these new pubkeys and removing old ones. This means
+that any coin using DPoW will *also need to hardfork at a coordinated time*,
+i.e.  coins using DPoW will also fork in May each year, after new KMD notaries
+have been elected and the new notarization season begins.
+
+Only notary nodes have the corresponding private keys to make transactions that
+the network will trust as valid notarizations. So DDoS attacks can only stop
+notarization data from flowing temporarily, they can not be used to knock
+actual notaries off-line and then impersonate or man-in-middle the process.
+
+## Adding or changing DPoW is a Hard Fork
+
+To be clear, DPoW are consensus-level changes to a cryptocoin source code,
+they require a coordinated effort of all exchanges/mining pools/users upgrading,
+since it is a hard fork. Take this into consideration when planning upgrade
+timelines.
+
+Additionally, to stay current
+
+
 
 # Double Spend Attack Prevention
 
@@ -65,10 +77,14 @@ exchanges and other parties wanting to protect against double spends can make
 informed decisions, in much shorter time periods than waiting until 120 confirmations.
 
 Currently exchanges often wait 120 confirmations, which is well beyond the 100
-block reorganization limit that is part of the Bitcoin protocol in many cryptocoins.
-With two minute blocktimes, that is 4 hours to wait, instead of waiting a much
-shorter and being able to ask an API if a transaction has been included in a
-notarizion to Bitcoin.
+block reorganization limit that is part of the Bitcoin protocol in many
+cryptocoins.  With two minute blocktimes, that is 4 hours to wait, instead of
+waiting a much shorter time and being able to ask an API if a transaction has
+been included in a notarizion to Bitcoin.
+
+So there is a trade-off: simplicity and waiting longer, or integrating with a
+Komodo API (more work) and having more precise and real-time knowledge of when
+a txid can be considered "safe" from a double spend.
 
 The plan is that any party can and should run their own instance of this API,
 which relies on talking to full nodes of BTC, KMD and the coin being notarized.
@@ -85,10 +101,16 @@ arbitary txid and whether it has been notarized to Bitcoin is in development.
 
 The raw cost of 64 global notary nodes making transactions roughly once per
 minute (the Komodo block interval) has a cost. There is a one-time yearly fee
-of 300 KMD paid directly to jl777 to cover these costs. To protect against
-future price increases of KMD (it's currently just over $1 USD), one may
-purchase 6300 KMD, and then use the yearly 5% interest of 300 KMD to pay the
-yearly notarization costs.
+of 300 KMD and 300 COIN paid directly to jl777 to cover these costs. To protect
+against future price increases of KMD (it's currently just over $1 USD), one
+may purchase 6300 KMD, and then use the yearly 5% interest of 300 KMD to pay
+the yearly notarization costs. The 300 KMD is used the first year and then the
+remaining 6000 KMD will generate 300 KMD per year via 5% interest.
+
+Note that since block 1,000,000 of KMD, funds must be moved once per month to
+get the full 5% interest. Interest stops accruing after one month for UTXOs
+created after block 1M. UTXOs from before still accrue interest without needing
+to be moved.
 
 # Integrating Komodo DPoW Into Your Coin
 
@@ -174,16 +196,21 @@ and post-Segwit can use 0.15 header file.
 
 ## Integrating a non-Bitcoin-derived coin
 
-It will be most likely be challenging to integrate a coin not derived from Bitcoin
-but we are eager to see if it's possible. The currently available 0.11 and 0.15
-header files can be used if the project is in C++ but if the coin is written
-in another language then those header files must be ported to that language first.
+It will be most likely be challenging to integrate a coin not derived from
+Bitcoin source code but we are eager to see if it's possible. The currently
+available 0.11 and 0.15 header files can be used if the project is in C++ but
+if the coin is written in another language then those header files must be
+ported to that language first.
+
+If your coin reimplements Bitcoin protocol from scratch, then it may still be
+compatible. Please join #developer on Komodo Discord to ask more questions.
 
 ## Adding some RPC methods
 
 You will need to add a few RPC methods to your coin so that will allow
 software to ask the node various questions about Merkle roots of Merkle roots
-(MoMs). Crosschain proofs are Merkle roots of MoMs and are called MoMoMs.
+(MoMs). Crosschain proofs are Merkle roots of MoMs and are called MoMoMs, this
+feature is still in development.
 
 ### calc\_MoM height MoMdepth
 
@@ -200,6 +227,13 @@ calc_MoM 100000 20
 Response: { "coin": "DATACHAIN" , "height": 100000 , "MoMdepth": 20 , "MoM": "53c234e5e8472b6ac51c1ae1cab3fe06fad053beb8ebfd8977b010655bfdd3c3" }
 ```
 
-
 # More coming soon
+
+
+# Supporting This Document And Author
+
+The author is currently a Komodo Notary Node operator and Komodo Core Developer
+who relies solely on cryptocoin income. If this document has helped you and
+you would like to support future updates, you can send donations to
+the KMD address RBSEv7nJ1wciriVyLFWotQ8tBvS2rKwYtz . Thanks!
 
