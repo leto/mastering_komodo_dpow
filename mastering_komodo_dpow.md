@@ -253,6 +253,22 @@ not describe every single step but it will be applicable to most situations.
 * Contact Komodo for the next round of instructions, which is Notary Nodes
     testing your code
 
+### Notary Node duties when adding a coin
+
+This is a non-exhaustive list of things that notary node operator will do
+to enable the new coin on production:
+
+* Ask decker to add coin to [Notary Addresses](https://deckersu.github.io/notaries_addresses.html)
+* Verify notary addresses match those generated/hardcoded in code
+* Install full node software
+* Compile on correct branch
+* Fully sync full node with txindex=1
+* Import their address to the new coin via a WIF generated from pubkey
+* Run full node with -pubkey option
+* Do a round of testing with enough NNs to do a dpow round (a min of 13)
+  to verify code more
+* Set up automated procedures specific to each coin, such as UTXO splitting/etc
+
 ## Adding some RPC methods
 
 You will need to add a few RPC methods to your coin so that will allow
