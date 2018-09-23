@@ -265,6 +265,7 @@ to enable the new coin on production:
 * Fully sync full node with txindex=1
 * Import their address to the new coin via a WIF generated from pubkey
 * Run full node with -pubkey option
+* Receive coins funds to be used in notarization UTXOs
 * Do a round of testing with enough NNs to do a dpow round (a min of 13)
   to verify code more
 * Set up automated procedures specific to each coin, such as UTXO splitting/etc
