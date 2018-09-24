@@ -253,6 +253,23 @@ not describe every single step but it will be applicable to most situations.
 * Contact Komodo for the next round of instructions, which is Notary Nodes
     testing your code
 
+### Iguana Changes
+
+Iguana is the low-level software which actually does the complex work
+of notarizing data across chains. Some glue is needed when new
+coins are added to notarization process:
+
+ * Update dpowassets, example: https://github.com/jl777/komodo/pull/887
+ * 7776 file, example: https://github.com/jl777/SuperNET/pull/890
+ * Other miscellaneous changes
+
+For instance, Hush was the first coin with 2 bytes of base58 prefix to
+be notarized by KMD. This caused issues because the internals of the
+coin assumes a 1 byte prefix in various places. Thankfully one of
+the amazing notary node operators stepped in and wrote a good chunk
+of C++ code to enable 2 byte prefixes, which makes many Zcash forks
+compatible!
+
 ### Notary Node duties when adding a coin
 
 This is a non-exhaustive list of things that notary node operator will do
