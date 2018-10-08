@@ -176,9 +176,9 @@ another. To estimate the "worst case" time it takes notarization to get to
 Bitcoin, we can simple add up all the blocktimes involved, so we will be adding
 blocktimes of
 
-    HUSH + KMD + BTC = 180s + 60s + 600s
+    HUSH + KMD + BTC = 150s + 60s + 600s
 
-which is 840s or 13.5 minutes for blockhash data from Hush to be notarized all
+which is 810s or 13.5 minutes for blockhash data from Hush to be notarized all
 the way to Bitcoin. This is the time it would take such that an exchange could
 ask the Bitcoin blockchain if a given txid has been notarized.
 
