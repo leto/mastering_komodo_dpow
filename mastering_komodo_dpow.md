@@ -116,19 +116,9 @@ arbitary txid and whether it has been notarized to Bitcoin is in development.
 
 The raw cost of 64 global notary nodes making transactions roughly once per
 minute (the Komodo block interval) has a cost. There is currently a one-time
-yearly fee of 300 KMD and 300 COIN paid directly to jl777 to cover these costs.
-To protect against future price increases of KMD (it's currently just over $1
-USD), one may purchase 6300 KMD, and then use the yearly 5% interest of 300 KMD
-to pay the yearly notarization costs. The 300 KMD is used the first year and
-then the remaining 6000 KMD will generate 300 KMD per year via 5% interest.
-
-NOTE: These prices are very subject to change and will most likely increase as
-we have a fixed number of resources to help with integrations.
-
-Note that since block 1,000,000 of KMD, funds must be moved once per month to
-get the full 5% interest. Interest stops accruing after one month for UTXOs
-created after block 1M. UTXOs from before still accrue interest without needing
-to be moved.
+fee of at least 300 of your coin, which directly cover the costs of transactions
+that notaries make on the blockchain. If the chain has a limit on small size
+amounts, this amount will be larger. Contact KMD Discord for more info.
 
 Also note, that if you decide to migrate your existing coin to a Komodo Asset
 Chain, there are no integrations needed or integration development costs. Just
