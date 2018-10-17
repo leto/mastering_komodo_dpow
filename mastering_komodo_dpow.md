@@ -115,10 +115,11 @@ arbitary txid and whether it has been notarized to Bitcoin is in development.
 # Cost of DPoW
 
 The raw cost of 64 global notary nodes making transactions roughly once per
-minute (the Komodo block interval) has a cost. There is currently a one-time
-fee of at least 300 of your coin, which directly cover the costs of transactions
-that notaries make on the blockchain. If the chain has a limit on small size
-amounts, this amount will be larger. Contact KMD Discord for more info.
+minute (the Komodo block interval) and continually on other coins has a cost.
+There is currently a one-time fee of at least 300 of your coin, which directly
+cover the costs of transactions that notaries make on the blockchain. If the
+chain has a limit on small size amounts, this amount will be larger. Contact
+KMD Discord for more info.
 
 Also note, that if you decide to migrate your existing coin to a Komodo Asset
 Chain, there are no integrations needed or integration development costs. Just
