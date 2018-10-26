@@ -119,10 +119,10 @@ minute (the Komodo block interval) and continually on other coins has a cost.
 
 Various costs related to DPoW can be broken down into these categories:
 
-    * Transaction fees denominated in KMD (paid by notaries making transactions)
-    * Transaction fees in the coin being notarized (paid by notaries)
-    * Yearly cost paid to KMD for DPoW services
-    * One-time integration costs to add DPoW to external coins
+  * Transaction fees denominated in KMD (paid by notaries making transactions)
+  * Transaction fees in the coin being notarized (paid by notaries)
+  * Yearly cost paid to KMD for DPoW services
+  * One-time integration costs to add DPoW to external coins
 
 Contact KMD Discord for more info about pricing.
 
