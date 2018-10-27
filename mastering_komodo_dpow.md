@@ -153,10 +153,6 @@ header file. If your coin has SegWit support, or is 0.14-0.16 internals, the
 [komodo\_validation015.h](https://github.com/jl777/chips3/blob/dev/src/komodo_validation015.h)
 file is most likely the best starting point to integrate.
 
-NOTE: The 0.11.x header file has some improvements which have yet to be ported
-to the 0.15.x header file, specifically dynamic generation of Notary pubkey
-address, which is currently hardcoded in that header.
-
 For coins with older internals, such as BTC 0.10.x and earlier, use the BTC
 0.11.x as a starting point, so less changes are required.
 
