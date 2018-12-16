@@ -120,6 +120,8 @@ DPoW confs are defaulted to on in the latest versions of KMD, exchanges
 do not need to change any code, any KMD daemon setting or CLI flags. They
 are protected by default.
 
+The KMD official docs have more details about [dpowconfs](https://docs.komodoplatform.com/komodo/dPOW-conf.html).
+
 # Cost of DPoW
 
 The raw cost of 64 global notary nodes making transactions roughly once per
