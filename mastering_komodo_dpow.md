@@ -91,26 +91,34 @@ of a certain dpow-enabled coin has been notarized to KMD and BTC, so that
 exchanges and other parties wanting to protect against double spends can make
 informed decisions, in much shorter time periods than waiting until 120 confirmations.
 
-Currently exchanges often wait 120 confirmations, which is well beyond the 100
-block reorganization limit that is part of the Bitcoin protocol in many
-cryptocoins.  With two minute blocktimes, that is 4 hours to wait, instead of
-waiting a much shorter time and being able to ask an API if a transaction has
-been included in a notarizion to Bitcoin.
-
-So there is a trade-off: simplicity and waiting longer, or integrating with a
-Komodo API (more work) and having more precise and real-time knowledge of when
-a txid can be considered "safe" from a double spend.
-
-The plan is that any party can and should run their own instance of this API,
-which relies on talking to full nodes of BTC, KMD and the coin being notarized.
-Additionally KMD will run it's own publicly available instance, and an exchange
-or other organization can decide which servers, other then their own to query.
-Any difference in the response from different instances should be inspected by
-a human, since it indicates incorrectly set up software or a potential attack.
-
 The API for when notarizations have made it to the KMD chain is at
-https://komodostats.com/api/notary/summary.json and the API for looking up an
-arbitary txid and whether it has been notarized to Bitcoin is in development.
+https://komodostats.com/api/notary/summary.json .
+
+# DPOWconfs protect against double spends with no code changes
+
+A recent innovation called "DPoW confs" was invented by jl777, which allows
+exchanges to seemlessly protect themselves against double spend attacks, with
+no code changes at all! Exchanges can simple continue to look at the
+`confirmations` key of whichever RPCs they use. DPoW confs is enabled by
+default, and when enabled, the confirmation count of a transaction will never
+go above 1, until it is notarized.
+
+To summarize
+
+  * confirmations=0 is unconfirmed (same as before)
+  * confirmations=1 is confirmed, but not notarized
+  * confirmations>1 means confirmed + notarized
+
+Since exchanges currently require anything from 10 to 100 or more
+confirmations, their current code already enforces that transactions are
+notarized.
+
+The old/original concept of `confirmations` is now stored in the
+`rawconfirmations` key of any RPC that returns `confirmations`.
+
+DPoW confs are defaulted to on in the latest versions of KMD, exchanges
+do not need to change any code, any KMD daemon setting or CLI flags. They
+are protected by default.
 
 # Cost of DPoW
 
