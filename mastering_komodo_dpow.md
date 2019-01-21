@@ -264,6 +264,22 @@ not describe every single step but it will be applicable to most situations.
   * VRSC
   * SUQA
 
+### When do notarizations actually start?
+
+Here are the steps for notarizations to begin:
+
+  * Consensus changes to full node
+  * RPC changes to full node
+  * Regtests for dpow (if applicable)
+  * Payment of Komodo DPoW yearly service fee
+  * Notary nodes asked to install/configure new daemon
+  * Notaries work on any changes to iguana that are needed
+  * Notaries begin to install full node + sync
+  * Notaries update iguana changes for new full node
+  * When 13 notaries have synced+configured the full node, notarization rounds begin
+
+When the full 64 notary nodes have installed, configured and synced the new full node,
+notarizations will happen with greater frequency and be added to http://notarystats.com .
 
 ### Iguana Changes
 
