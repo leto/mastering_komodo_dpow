@@ -261,8 +261,9 @@ not describe every single step but it will be applicable to most situations.
   * [KREDS](https://github.com/leto/kreds-core/blob/dpow/src/komodo_validation015.h) BTC 0.15
   * [GAME](https://github.com/gamecredits-project/GameCredits/blob/master/src/komodo_validation015.h) BTC 0.15
   * [CHIPS](https://github.com//jl777/chips3/blob/master/src/komodo_validation015.h) BTC 0.15
+  * [SUQA](https://github.com/leto/SUQA-0.17.1/blob/dpow/src/komodo_validation017.h) BTC 0.17.1
+  * [GIN](https://github.com/GIN-coin/gincoin-core/blob/master/src/komodo_validation012.h) BTC 0.12
   * VRSC
-  * SUQA
 
 ### When do notarizations actually start?
 
