@@ -316,10 +316,3 @@ to enable the new coin on production:
   to verify code more
 * Set up automated procedures specific to each coin, such as UTXO splitting/etc
 
-# Supporting This Document And Author
-
-The author is currently a Komodo Notary Node operator and Komodo Core Developer
-who relies solely on cryptocoin income. If this document has helped you and
-you would like to support future updates, you can send donations to
-the KMD address RBSEv7nJ1wciriVyLFWotQ8tBvS2rKwYtz . Thanks!
-
