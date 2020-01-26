@@ -226,6 +226,10 @@ For Litecoin forks, the version of BTC internals inside is what makes the bigges
 difference. Being pre-Segwit means using the 0.11.x header file as a starting point,
 and post-Segwit can use 0.15 header file.
 
+## Integrating a CryptoNote/Monero fork
+
+There is recent work in this area by BLUR, see this repo for details: https://github.com/blur-network/dpow-blur
+
 ## Integrating a non-Bitcoin-derived coin
 
 It will be most likely be challenging to integrate a coin not derived from
